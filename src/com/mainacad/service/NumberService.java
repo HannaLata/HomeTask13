@@ -2,22 +2,27 @@ package com.mainacad.service;
 
 public class NumberService {
 
-    public int getSumByDivision(int number) {
+    public static int getSumByDivision(int number) {
         int result = 0;
+
+        while (number>0){
+            result += number%10;
+            number = number/10; }
 
         return result;
     }
 
-    public Integer getSumByTypeManipulation(int number) {
+    public static Integer getSumByTypeManipulation(int number) {
         Integer result = 0;
         String numberAsString = String.valueOf(number);
 
         // "12345" -> {'1','2','3','4','5'}
         char[] symbols = numberAsString.toCharArray();
 
-        for (int i = 0; i < symbols.length; i++) {
+        for (int i = 0; i < symbols.length; i++) {  //for (char symbol : symbols) {result += Character.getNumericValue(symbol);}
 
-            result += symbols[i];
+            int a = Integer.parseInt(String.valueOf(symbols[i]));
+            result += a;
 
         }
 
